@@ -18,10 +18,21 @@
         
         <div class="nav-links">
             <ul>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="/contact.html" class="active">Contact Us</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="products.html">Products <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="continuous-inkjet-printer.html">Continuous Inkjet Printer</a></li>
+                        <li><a href="products.html#thermal-tij">Thermal Inkjet Printers Tij</a></li>
+                        <li><a href="products.html#inkjet">Inkjet Printer</a></li>
+                        <li><a href="products.html#batch">Batch Coding Machine</a></li>
+                        <li><a href="products.html#laser">Laser Marking Machine</a></li>
+                        <li><a href="products.html#thermal">Thermal Inkjet Printers</a></li>
+                        <li><a href="products.html#handheld">Handheld Inkjet Printer</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
             </ul>
         </div>
 
@@ -73,7 +84,7 @@
                     <i class="fas fa-phone"></i>
                     <div>
                         <h3>Phone</h3>
-                        <p><a href="tel:08046064955">080-4606-4955</a></p>
+                        <p><a href="tel:08046064955" class="contact-link">080-4606-4955</a></p>
                     </div>
                 </div>
                 <div class="info-item">
@@ -88,22 +99,22 @@
 
             <div class="contact-form">
                 <h2>Send us a Message</h2>
-                <form id="contactForm" onsubmit="return false;">
+                <form id="contactForm">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" placeholder=" " required>
                         <label for="name">Your Name</label>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" placeholder=" " required>
                         <label for="email">Your Email</label>
                     </div>
                     <div class="form-group">
-                        <input type="tel" id="phone" name="phone" required>
+                        <input type="tel" id="phone" name="phone" placeholder=" " required>
                         <label for="phone">Phone Number</label>
                     </div>
                     <div class="form-group">
                         <select id="subject" name="subject" required>
-                            <option value="">Select Subject</option>
+                            <option value="" disabled selected>Select Subject</option>
                             <option value="general">General Inquiry</option>
                             <option value="support">Technical Support</option>
                             <option value="sales">Sales</option>
@@ -111,7 +122,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea id="message" name="message" required></textarea>
+                        <textarea id="message" name="message" placeholder=" " required></textarea>
                         <label for="message">Your Message</label>
                     </div>
                     <button type="submit" class="submit-btn">Send Message</button>
