@@ -14,6 +14,78 @@
         :root {
             --accent-color: #4CAF50;  /* Green accent for thermal printers */
         }
+        
+        /* Custom Cursor Styles */
+        .custom-cursor {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 99999;
+            will-change: transform;
+        }
+
+        .cursor-dot {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: #33ccff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s;
+            box-shadow: 0 0 10px rgba(51, 204, 255, 0.5);
+        }
+
+        .cursor-ring {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #33ccff;
+            border-radius: 50% 0 50% 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            transition: all 0.2s;
+            box-shadow: 0 0 15px rgba(51, 204, 255, 0.3);
+        }
+
+        .cursor-hover .cursor-dot {
+            width: 12px;
+            height: 12px;
+            background: #ff3366;
+            box-shadow: 0 0 10px rgba(255, 51, 102, 0.5);
+        }
+
+        .cursor-hover .cursor-ring {
+            width: 40px;
+            height: 40px;
+            border-color: #ff3366;
+            box-shadow: 0 0 15px rgba(255, 51, 102, 0.3);
+            animation: cursorPulse 1.5s infinite;
+        }
+
+        @keyframes cursorPulse {
+            0% {
+                transform: translate(-50%, -50%) rotate(45deg) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-50%, -50%) rotate(225deg) scale(1.2);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(405deg) scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Hide cursor on interactive elements */
+        a, button, .card, .excellence-card {
+            cursor: none !important;
+        }
+
+        /* Hide default cursor */
+        html, body {
+            cursor: none !important;
+        }
     </style>
 </head>
 <body>
@@ -254,6 +326,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="js/main.js"></script>
     <script src="script.js"></script>
+    <script src="js/cursor.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
