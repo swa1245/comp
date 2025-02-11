@@ -2792,8 +2792,9 @@ body {
     position: absolute;
     right: 20px;
     top: 20px;
-    font-size: 30px;
-    color: #333;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
     cursor: pointer;
     z-index: 1;
     width: 40px;
@@ -2801,14 +2802,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
     transition: all 0.3s ease;
 }
 
 .close-modal:hover {
     transform: rotate(90deg);
-    background: rgba(255, 255, 255, 1);
+    background: rgba(0, 0, 0, 0.8);
 }
 
 @media (max-width: 768px) {
@@ -4358,10 +4359,10 @@ body {
 
 .close-modal {
     position: absolute;
-    right: -40px;
-    top: -40px;
+    right: 20px;
+    top: 20px;
     color: #fff;
-    font-size: 35px;
+    font-size: 28px;
     font-weight: bold;
     cursor: pointer;
     z-index: 1;
@@ -4375,6 +4376,7 @@ body {
 
 .close-modal:hover {
     transform: rotate(90deg);
+    background: rgba(0, 0, 0, 0.8);
 }
 
 @media (max-width: 768px) {
@@ -4384,6 +4386,6 @@ body {
     
     .close-modal {
         right: 10px;
-        top: -50px;
+        top: 10px;
     }
 }
