@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -189,7 +190,7 @@
                 </div>
             </div>
             <div class="product-details">
-                <h3>Industrial Inkjet Printing System</h3>
+                <h3>Industrial Inkjet Printing </h3>
                 <p>Complete printing solution for production lines</p>
                 <a href="#" class="details-btn">View Details</a>
             </div>
@@ -236,7 +237,7 @@
             </div>
             <div class="product-details">
                 <h3>Mobile Thermal Inkjet Printer</h3>
-                <p>Portable thermal printing solution for on-the-go needs</p>
+                <p>Portable thermal printing solution </p>
                 <a href="#" class="details-btn">View Details</a>
             </div>
         </div>
@@ -252,7 +253,7 @@
             </div>
             <div class="product-details">
                 <h3>Laser Marking Machine</h3>
-                <p>Precise and permanent marking solution</p>
+                <p>Precise and permanent marking solution for on-the-go needs</p>
                 <a href="#" class="details-btn">View Details</a>
             </div>
         </div>
@@ -298,7 +299,7 @@
             </div>
             <div class="product-details">
                 <h3>HX Nitro Batch Coding Machine</h3>
-                <p>Advanced batch coding with superior speed and accuracy</p>
+                <p>Advanced batch coding with speed</p>
                 <a href="#" class="details-btn">View Details</a>
             </div>
         </div>
@@ -366,23 +367,10 @@
     </section>
 
     <!-- Product Quick View Modal -->
-    <div class="modal" id="product-modal">
+    <div class="modal" id="productModal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <div class="modal-body">
-                <div class="modal-image">
-                    <img src="" alt="Product Image">
-                </div>
-                <div class="modal-info">
-                    <h2></h2>
-                    <p class="description"></p>
-                    <div class="features">
-                        <h3>Key Features</h3>
-                        <ul></ul>
-                    </div>
-                    <button class="request-quote">Request Quote</button>
-                </div>
-            </div>
+            <img src="" alt="Product Image">
         </div>
     </div>
 
@@ -442,5 +430,37 @@
     <script src="js/main.js"></script>
     <script src="script.js"></script>
     <script src="js/cursor.js"></script>
+    <script>
+        // Get the modal and its elements
+        const modal = document.getElementById('productModal');
+        const modalImage = modal.querySelector('img');
+        const closeBtn = modal.querySelector('.close-modal');
+
+        // Get all quick view buttons
+        const quickViewButtons = document.querySelectorAll('.quick-view');
+
+        // Add click event to all quick view buttons
+        quickViewButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productImage = this.closest('.product-image').querySelector('img');
+                modalImage.src = productImage.src;
+                
+                // Show modal
+                modal.style.display = 'block';
+            });
+        });
+
+        // Close modal when clicking the close button
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

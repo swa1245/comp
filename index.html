@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -292,7 +293,7 @@
                         <img src="assets/images/featureProducts/ContinuousInkjetPrinter.webp" alt="Continuous Inkjet Printer">
                     </div>
                     <div class="product-info">
-                        <h3>Continuous Inkjet Printer</h3>
+                        <h3>Continue Inkjet Printer</h3>
                         <p>High-speed continuous printing solution for industrial applications</p>
                         <a href="#" class="product-btn">Learn More</a>
                     </div>
@@ -304,7 +305,7 @@
                     </div>
                     <div class="product-info">
                         <h3>Handheld Inkjet Printer</h3>
-                        <p>Portable printing solution for flexible marking needs</p>
+                        <p>Portable printing solution for flexible marking needs for industrial applications</p>
                         <a href="#" class="product-btn">Learn More</a>
                     </div>
                 </div>
@@ -326,7 +327,7 @@
                     </div>
                     <div class="product-info">
                         <h3>Laser Marking Machine</h3>
-                        <p>Precise and permanent marking solution</p>
+                        <p>Precise and permanent marking solution or industrial applications</p>
                         <a href="#" class="product-btn">Learn More</a>
                     </div>
                 </div>
@@ -337,7 +338,7 @@
                     </div>
                     <div class="product-info">
                         <h3>Thermal Inkjet Printer</h3>
-                        <p>High-resolution coding for premium packaging</p>
+                        <p>High-resolution coding for premium packaging or industrial applications</p>
                         <a href="#" class="product-btn">Learn More</a>
                     </div>
                 </div>
@@ -723,13 +724,10 @@
     </footer>
 
     <!-- Image Modal -->
-    <div class="image-modal" id="imageModal">
-        <div class="modal-overlay"></div>
+    <div class="modal" id="imageModal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <img src="" alt="Modal Image" class="modal-image">
-            <button class="modal-nav prev"><i class="fas fa-chevron-left"></i></button>
-            <button class="modal-nav next"><i class="fas fa-chevron-right"></i></button>
+            <img id="modalImage" src="" alt="Sample Product">
         </div>
     </div>
 
@@ -763,6 +761,37 @@
                     }, 500);
                 }
             }, 20);
+        });
+    </script>
+
+    <script>
+        // Get the modal and its elements
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeBtn = imageModal.querySelector('.close-modal');
+
+        // Get all eye buttons in sample products
+        const eyeButtons = document.querySelectorAll('.sample-card .action-btn');
+
+        // Add click event to all eye buttons
+        eyeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productImage = this.closest('.card-image').querySelector('img');
+                modalImage.src = productImage.src;
+                imageModal.style.display = 'block';
+            });
+        });
+
+        // Close modal when clicking the close button
+        closeBtn.addEventListener('click', function() {
+            imageModal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === imageModal) {
+                imageModal.style.display = 'none';
+            }
         });
     </script>
 </body>
