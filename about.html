@@ -91,7 +91,7 @@
         
         <div class="nav-links">
             <ul>
-                <li><a href="index.html" >Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About</a></li>
                 <li class="dropdown">
                     <a href="products.html">Products <i class="fas fa-chevron-down"></i></a>
@@ -114,6 +114,9 @@
                 <input type="text" placeholder="Search...">
                 <button type="submit"><i class="fas fa-search"></i></button>
             </div>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
         </div>
     </nav>
 
@@ -281,7 +284,7 @@
                     <li><a href="#">Automotive</a></li>
                 </ul>
             </div>
-            <div class="footer-section contact">
+            <div class="footer-section ">
                 <h4>Contact Us</h4>
                 <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
                 <p><i class="fas fa-envelope"></i> info@inkindustrial.com</p>
@@ -308,5 +311,53 @@
     <script src="js/main.js"></script>
     <script src="script.js"></script>
     <script src="js/cursor.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const dropdowns = document.querySelectorAll('.dropdown');
+
+            // Toggle menu
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // For mobile view, make all dropdown links directly clickable
+            if (window.innerWidth <= 768) {
+                const allLinks = document.querySelectorAll('.nav-links a');
+                allLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        const href = this.getAttribute('href');
+                        if (href) {
+                            e.preventDefault();
+                            window.location.href = href;
+                        }
+                    });
+                });
+            } else {
+                // Desktop view dropdown handling
+                dropdowns.forEach(dropdown => {
+                    const link = dropdown.querySelector('a');
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        dropdowns.forEach(d => {
+                            if (d !== dropdown) {
+                                d.classList.remove('active');
+                            }
+                        });
+                        dropdown.classList.toggle('active');
+                    });
+                });
+            }
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    dropdowns.forEach(d => d.classList.remove('active'));
+                }
+            });
+        });
+    </script>
 </body>
 </html>
